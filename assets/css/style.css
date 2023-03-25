@@ -438,6 +438,8 @@ main {
   justify-content: flex-start;
   align-items: center;
   gap: 15px;
+  margin-bottom: -25px;
+  margin-top: 10px;
   padding-bottom: 4px;
   padding-left: 7px;
 }
