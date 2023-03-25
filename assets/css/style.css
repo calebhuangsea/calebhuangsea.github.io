@@ -1855,7 +1855,7 @@ textarea.form-input::-webkit-resizer { display: none; }
   }
 
   .info-content .title { 
-    margin-top: 5%;
+    margin-top: 40px;
    }
 
   .info_more-btn { display: none; }
