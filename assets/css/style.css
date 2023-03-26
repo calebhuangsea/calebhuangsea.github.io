@@ -438,8 +438,8 @@ main {
   align-items: center;
   gap: 15px;
   margin-bottom: -3%;
-  margin-top: 10%;
-  padding-bottom: 4px;
+  margin-top: 2%;
+  padding-bottom: 2%;
   padding-left: 7px;
 }
 
@@ -1347,7 +1347,7 @@ textarea.form-input::-webkit-resizer { display: none; }
 
   .avatar-box img { width: 120px; }
 
-  .info-content .name { margin-bottom: 15px; }
+  .info-content .name { margin-bottom: 0px; }
 
   .info-content .title { padding: 5px 18px; }
 
@@ -1842,7 +1842,6 @@ textarea.form-input::-webkit-resizer { display: none; }
   .sidebar-info { 
     flex-direction: column;
     margin-top: -20%;
-    /* margin-bottom: -15%; */
   }
 
   .avatar-box img { width: 150px; }
@@ -1853,7 +1852,7 @@ textarea.form-input::-webkit-resizer { display: none; }
   }
 
   .info-content .title { 
-    /* margin-top: 40px; */
+    margin-top: 20px;
    }
 
   .info_more-btn { display: none; }
