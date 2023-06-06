@@ -469,6 +469,22 @@ body {
     color: #606c71
 }
 
+.redirect-button {
+    background: linear-gradient(to right, #0086B3, #009999);
+    border-radius: 60px; /* 将border-radius设置为宽度的一半 */
+    text-align: center;
+    line-height: 60px;
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    top: 20px;
+    right: 160px;
+    width: 120px;
+    height: 60px;
+  }
+
 .floating-button {
     background: linear-gradient(to right, #0086B3, #009999);
     border-radius: 60px; /* 将border-radius设置为宽度的一半 */
