@@ -33,7 +33,7 @@
         <!-- end custom head snippets -->
     </head>
     <body>
-        <a href="code.html" class="floating-button">Code</a>
+        <a href="bird-classification.html" class="floating-button">Code</a>
         <a id="skip-to-content" href="#content">Skip to the content.</a>
         <header class="page-header" role="banner">
             <h1 class="project-name">Birds? Kaggle Competition</h1>
@@ -75,7 +75,7 @@
             <p>We have explored two ways to balance the number of instances for each class.</p>
             <h2>(1) Data augmentation:</h2>
             <p>Data augmentation is a technique for artificially increasing the number of samples in the training dataset in order to prevent the model from overfitting. Transformations that are applied should maintain the data’s coherence with the distribution from which it was drawn, as extreme parameters may impede the model’s ability to learn.</p>
-            <p>In order to optimize the image loading process, we have resized all the images to 256x256 and stored them on an SSD as the new dataset.</p>
+            <p>In order to optimize the image loading process, we have resized all the images to 224x224 and stored them on an SSD as the new dataset.</p>
             <p>
                 <img src="aug.png" alt="Augmentation"/>
             </p>
@@ -90,7 +90,7 @@
             <h2 id="Train/Validation/Test Set Splitting">Train / Validation / Test Set Splitting</h2>
             <p>Before we dive into the training process, we first split our dataset into two categories: training set, validation set, and test set. In this contest, we were given two folders of data. One is the ground truth dataset and one is the dataset with unknown labels. Hence, we split the first dataset into a training set and a validation set with a ratio of 8 : 2, and the second dataset automatically becomes the test set, where the accuracy is measured after we submit our prediction to the competition website. By the way, image augmentation transforms are only applied to the training set.</p>
             <h2 id="Training">Training</h2>
-            <p>During training, we use CrossEntropy as the loss function as the principal performance metric. We employ SGD with custom weight decay (0.0005) and momentum (0.9) as the optimizer. We use the biggest batch size possible as long as we have enough GPU memories, and we use a batch size of 64 for smaller models and 32 for bigger ones. We also make use of the learning rate scheduler and experimented with the random weight sampler. However, the random weight sampler doesn’t improve the performance, so we didn’t use it in our final pipeline.</p>
+            <p>During training, we use CrossEntropy as the loss function as the principal performance metric. We employ SGD with custom weight decay (0.0005) and momentum (0.9) as the optimizer. We use the biggest batch size possible as long as we have enough GPU memories, and we use a batch size of 64 for smaller models and 32 for bigger ones. We also make use of the learning rate scheduler.</p>
             <h2 id="Models and Ensemble">Models and Ensemble</h2>
             <p>We have been experimenting with various CV attention models, including MaxViT, ConvNeXt, and Swin Transformer V2. For the model size, we choose the tiny version for MaxViT, the small version for ConvNeXt, and the tiny version for Swin Transformer V2. Among the three models, MaxViT performs the best, which reaches an 83.65% accuracy in the test set. Then is ConvNeXt, which reaches an 81.85% accuracy in the test set. Finally is Swin Transformer V2, which reaches an 81.55% accuracy in the test set. In our final submission, we also perform model ensemble to integrate all three models together to get a better performance. We do grid search to find the best coefficients between the three models so that they have the highest accuracy on the validation set using the coefficients. We finally choose the coefficient between MaxViT, ConvNeXt, and Swin Transformer V2 to be 0.39 : 0.26 : 0.35.</p>
             <h2 id="Final Result">Final Result</h2>
