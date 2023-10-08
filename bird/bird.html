@@ -87,10 +87,13 @@
             <p>
                 <img src="weight.png" alt="Weighted Random Sampler"/>
             </p>
+            <p>
+                Note that using a weight sampler is more reasonable in real applications because it could make our model pay more attention to the skewed groups. However, in our attempts, we found that training with a weight sampler even worsens the test set accuracy. This might be due to the fact that the test set has fewer minority groups and focus more on the majority group. Hence, in our final submission to the competition, we actually didn't use the weight sampler in our training pipeline. But theoretically, it should be better to include that. 
+            </p>
             <h2 id="Train/Validation/Test Set Splitting">Train / Validation / Test Set Splitting</h2>
             <p>Before we dive into the training process, we first split our dataset into two categories: training set, validation set, and test set. In this contest, we were given two folders of data. One is the ground truth dataset and one is the dataset with unknown labels. Hence, we split the first dataset into a training set and a validation set with a ratio of 8 : 2, and the second dataset automatically becomes the test set, where the accuracy is measured after we submit our prediction to the competition website. By the way, image augmentation transforms are only applied to the training set.</p>
             <h2 id="Training">Training</h2>
-            <p>During training, we use CrossEntropy as the loss function as the principal performance metric. We employ SGD with custom weight decay (0.0005) and momentum (0.9) as the optimizer. We use the biggest batch size possible as long as we have enough GPU memories, and we use a batch size of 64 for smaller models and 32 for bigger ones. We also make use of the learning rate scheduler and weight sampler. Note that using a weight sampler is more reasonable in real applications because it could make our model pay more attention to the skewed groups. However, in our attempts, we found that training with a weight sampler even worsens the test set accuracy. This might be due to the fact that the test set has fewer minority groups and focus more on the majority group. Hence, in our final submission to the competition, we actually didn't use the weight sampler in our training pipeline. But theoretically, it should be better to include that.</p>
+            <p>During training, we use CrossEntropy as the loss function as the principal performance metric. We employ SGD with custom weight decay (0.0005) and momentum (0.9) as the optimizer. We use the biggest batch size possible as long as we have enough GPU memories, and we use a batch size of 64 for smaller models and 32 for bigger ones. We also make use of the learning rate scheduler and weight sampler.</p>
             <p>
                 <img src="102851686103366_.pic.jpg", alt="training loss"/>
             </p>
